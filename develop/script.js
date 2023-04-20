@@ -1,4 +1,3 @@
-// Assignment Code
 // List of acceptable special characters
 const specialChars = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 // List of acceptable uppercase and lowercase characters
@@ -80,7 +79,7 @@ function writePassword() {
     if (confirm('Should your password contain special characters?')) {
         containsSpecial = true;
     }
-    
+
     // Final validation, at least 1 type must be true
     if (containsUppercase === false) {
         if (containsLowercase === false) {
@@ -89,11 +88,37 @@ function writePassword() {
                     alert('Please select at least 1 password criteria type');
                     writePassword()
                     return;
+                }
             }
         }
     }
+
+    let password = '';
+    // Success! Let's generate the password
+    while (password.length <= passwordLength) {
+        if (containsUppercase === true) {
+            // Generate a random character from the uppercase chars
+            password += uppercaseChars.charAt(getRandom(uppercaseChars.length));
+
+        }
+        if (containsLowercase === true) {
+            // Generate a random character from the lowercase chars
+            password += lowercaseChars.charAt(getRandom(lowercaseChars.length));
+
+        }
+        if (containsNumbers === true) {
+            // Generate a random number between 0 and 9
+            password += getRandom(10);
+
+        }
+        if (containsSpecial === true) {
+            // Generate a random character from the special chars
+            password += specialChars.charAt(getRandom(specialChars.length));
+        }
+    }
+
+    document.querySelector('#password').innerText=password;
 }
 
-}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
