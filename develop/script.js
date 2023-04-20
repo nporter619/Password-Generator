@@ -20,7 +20,41 @@ function getRandom(num) {
     return Math.floor(Math.random() * num);
 }
 
-function writePassword()
+function writePassword() {
+    // Let's us know if there was an error
+    let invalid = false;
 
+    // userInput will contain the input from the user as a string
+    let userInput = prompt('Please enter a password length between 8 and 128');
+
+    // User clicked cancel
+    if (userInput === null) {
+        return;
+    }
+
+    // Convert the user input to a number
+    userInput = Number(userInput);
+
+    // If not a number or input is less than 8 or greater than 128, set invalid to true
+    if (isNaN(userInput)) {
+        invalid = true;
+
+    } else if (userInput < 8) {
+        invalid = true;
+
+    } else if (userInput > 128) {
+        invalid = true;
+    }
+
+    // If invalid is true, show error...
+    if (invalid) {
+        // exit and show the error message
+        alert('Please enter a valid number between 8 and 128.');
+
+        // Ask again
+        writePassword();
+        return;
+    }
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
