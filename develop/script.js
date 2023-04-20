@@ -55,6 +55,32 @@ function writePassword() {
         writePassword();
         return;
     }
+
+    // Set the passwordLength
+    passwordLength = userInput;
+
+    // Password length is valid, let's ask for password types...
+
+    // Ask if password should contain uppercase
+    if (confirm('Should your password contain uppercase characters?')) {
+        containsUppercase = true;
+    }
+
+    // Ask if password should contain lowercase
+    if (confirm('Should your password contain lowercase characters?')) {
+        containsLowercase = true;
+    }
+
+    // Ask if password should contain numeric characters
+    if (confirm('Should your password contain numeric characters?')) {
+        containsNumbers = true;
+    }
+
+    // Ask if password should contain special characters
+    if (confirm('Should your password contain special characters?')) {
+        containsSpecial = true;
+    }
+
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
