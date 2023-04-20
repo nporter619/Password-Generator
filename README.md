@@ -6,6 +6,6 @@ How to Use: Open up the page in the web browser click on Generate Password and g
 
 License:N/A
 
-Screenshot:
+Link: https://nporter619.github.io/Password-Generator/
 
-Link:
+Screenshot:![Alt text](assets/images/nporter619.github.io_Password-Generator_.png)
