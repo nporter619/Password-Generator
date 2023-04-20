@@ -80,6 +80,19 @@ function writePassword() {
     if (confirm('Should your password contain special characters?')) {
         containsSpecial = true;
     }
+    
+    // Final validation, at least 1 type must be true
+    if (containsUppercase === false) {
+        if (containsLowercase === false) {
+            if (containsNumbers === false) {
+                if (containsSpecial === false) {
+                    alert('Please select at least 1 password criteria type');
+                    writePassword()
+                    return;
+            }
+        }
+    }
+}
 
 }
 // Add event listener to generate button
